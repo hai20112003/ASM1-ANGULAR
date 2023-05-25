@@ -1,0 +1,47 @@
+<div>
+    <h1>Quản lý sản phẩm</h1>
+    {{status ? "On" : "Off"}}
+    <button (click) ="toggle()">toggle</button>
+    <input type="text" (input) = "setValue($event)">
+    {{valueInput}}
+    <table border="2">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Ảnh
+                </th>
+                <th>
+                    Tên sản phẩm
+                </th>
+                <th>
+                    Giá
+                </th>
+                <th>
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let product of products; index as i">
+                <td>
+                    {{i + 1 }}
+                </td>
+                <td>
+                    <img src="{{ product.image }}" alt="">
+                </td>
+                <td>
+                    {{ product.name }}
+                </td>
+                <td>
+                    {{ product.price }}
+                </td>
+                <td>
+                    <button class=" btn btn-danger" (click)="removeItem(product.id)">XÓa</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
